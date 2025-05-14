@@ -12,14 +12,9 @@ pipeline {
         git branch: 'master', url:'https://github.com/vsshubh/MigrationTest.git'
       }
     }
-    stage('Build') {
+    stage('Build & Test') {
       steps{
-        sh 'mvn compile package'
-      }
-    }
-    stage('test') {
-      steps{
-        sh 'mvn test'
+        sh 'mvn clean install'
       }
     }
     stage('Run Application') {
